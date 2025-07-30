@@ -10,7 +10,7 @@ const DSAApp = () => {
 
   const dsaPatterns = [
     'Array', 'String', 'Hash Table', 'Dynamic Programming', 'Math', 'Sorting',
-    'Greedy', 'Depth-First Search', 'Binary Search', 'Database', 'Matrix', 'Tree',
+    'Greedy', 'Depth-First Search', 'Binary Search', 'Database', 'Matrix', 'Interval', 'Tree',
     'Breadth-First Search', 'Bit Manipulation', 'Two Pointers', 'Prefix Sum',
     'Heap (Priority Queue)', 'Graph', 'Stack', 'Sliding Window', 'Backtracking',
     'Union Find', 'Linked List', 'Monotonic Stack', 'Queue'
@@ -312,7 +312,51 @@ return res`
         { number: 78, name: 'Subsets', difficulty: 'Medium', solved: false },
         { number: 39, name: 'Combination Sum', difficulty: 'Medium', solved: false },
       ]
-    }
+    },
+    'Matrix': {
+      templates: [
+        {
+          name: 'Search in Matrix',
+          code: `74. Search a 2D Matrix
+
+# flatten into 1d array
+# use binary search
+
+240. Search a 2D Matrix II
+
+# start at top-right corner
+# while in bounds (i < m and j >= 0)
+    # go left if target less
+    # go down if target more`
+        }
+      ],
+      problems: [
+        { number: 74, name: 'Search a 2D Matrix', difficulty: 'Medium', solved: false },
+        { number: 240, name: 'Search a 2D Matrix II', difficulty: 'Medium', solved: false },
+        { number: 48, name: 'Rotate Image', difficulty: 'Medium', solved: false },
+        { number: 54, name: 'Spiral Matrix', difficulty: 'Medium', solved: false },
+        { number: 73, name: 'Set Matrix Zeroes', difficulty: 'Medium', solved: false }
+      ]
+    },
+    'Interval': {
+      templates: [
+        {
+          name: '252. Meeting Rooms',
+          code: `intervals.sort(key=lambda x:x[0])
+for i in range(len(intervals) - 1):
+    if intervals[i][1] > intervals[i + 1][0]:
+        return False
+return True`
+        }
+      ],
+      problems: [
+        { number: 252, name: 'Meeting Rooms', difficulty: 'Easy', solved: false },
+        { number: 56, name: 'Merge Intervals', difficulty: 'Medium', solved: false },
+        { number: 57, name: 'Insert Interval', difficulty: 'Medium', solved: false },
+        { number: 253, name: 'Meeting Rooms II', difficulty: 'Medium', solved: false },
+        { number: 435, name: 'Non-overlapping Intervals', difficulty: 'Medium', solved: false }
+      ]
+    },
   };
 
   // Add default data for patterns not explicitly defined
