@@ -233,6 +233,56 @@ return res + [root.val]`
         { number: 98, name: 'Validate Binary Search Tree', difficulty: 'Medium', solved: false }
       ]
     },
+    'Bit Manipulation': {
+      notes: `Key concepts:
+        Hamming weight - number of set bits (ones)
+        Hamming distance - number of different bits between two numbers
+        Complement - flip the bits
+
+        Operators:
+            0 ^ 0 = 0
+            1 ^ 0 = 1
+            0 ^ 1 = 1
+            1 ^ 1 = 0
+        
+        Shifts:
+            Left shift: n << k, n * 2^k
+            Right shift: n >> k, n // 2^k`,
+      templates: [
+        {
+          name: '191. Number of 1 Bits',
+          code: `# bin(n).count('1')
+ones = 0
+while n:
+    ones += n & 1   # get last bit
+    n >>= 1         # shift to right by one (to get next bit)
+return ones`
+        },
+        {
+          name: '476. Number Complement',
+          code: `mask = (1 << n.bit_length()) - 1
+return mask ^ n`
+        },
+        {
+          name: '136. Single Number',
+          code: `# Key properties of XOR:
+# a ^ a = 0   (duplicates cancel out)
+# a ^ 0 = a   (XOR with zero is the number itself)
+
+res = 0
+for num in nums:
+    res ^= num
+return res`
+        }
+      ],
+      problems: [
+        { number: 191, name: 'Number of 1 Bits', difficulty: 'Easy', solved: false },
+        { number: 136, name: 'Single Number', difficulty: 'Easy', solved: false },
+        { number: 476, name: 'Number Complement', difficulty: 'Easy', solved: false },
+        { number: 338, name: 'Counting Bits', difficulty: 'Easy', solved: false },
+        { number: 268, name: 'Missing Number', difficulty: 'Easy', solved: false }
+      ]
+    },
     'Backtracking': {
       templates: [
         {
@@ -355,6 +405,38 @@ return True`
         { number: 57, name: 'Insert Interval', difficulty: 'Medium', solved: false },
         { number: 253, name: 'Meeting Rooms II', difficulty: 'Medium', solved: false },
         { number: 435, name: 'Non-overlapping Intervals', difficulty: 'Medium', solved: false }
+      ]
+    },
+    'Linked List': {
+      templates: [
+        {
+          name: '141. Linked List Cycle',
+          code: `t = h = head
+while h and h.next:
+    t = t.next
+    h = h.next.next
+    if t == h:
+        return True
+return False`
+        },
+        {
+          name: '206. Reverse Linked List',
+          code: `prev = None
+curr = head
+while curr:
+    nxt = curr.next
+    curr.next = prev
+    prev = curr
+    curr = nxt
+return prev`
+        }
+      ],
+      problems: [
+        { number: 141, name: 'Linked List Cycle', difficulty: 'Easy', solved: false },
+        { number: 206, name: 'Reverse Linked List', difficulty: 'Easy', solved: false },
+        { number: 21, name: 'Merge Two Sorted Lists', difficulty: 'Easy', solved: false },
+        { number: 19, name: 'Remove Nth Node From End of List', difficulty: 'Medium', solved: false },
+        { number: 23, name: 'Merge k Sorted Lists', difficulty: 'Hard', solved: false }
       ]
     },
   };
