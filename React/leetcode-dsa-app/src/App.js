@@ -273,7 +273,37 @@ res = 0
 for num in nums:
     res ^= num
 return res`
-        }
+},
+{
+  name: '190. Reverse Bits',
+  code: `# Shift n right
+# shift res left
+
+res = 0
+for i in range(32):
+    lastBit = n & 1
+    res <<= 1
+    res += lastBit
+    n >>= 1
+return res`
+},
+{
+  name: '231. Powers of Two',
+  code: `# powers of two: 1000...
+# 1000 & 0111 = 0
+
+return n > 0 and n & (n - 1) == 0`
+},
+{
+  name: '338. Counting Bits',
+  code: `# drop last bit (shift right once)
+# get last bit
+
+res = [0] * (n + 1)
+for i in range(1, n + 1):
+    res[i] = res[i >> 1] + (i & 1)
+return res`
+}
       ],
       problems: [
         { number: 191, name: 'Number of 1 Bits', difficulty: 'Easy', solved: false },
